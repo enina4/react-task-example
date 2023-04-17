@@ -1,20 +1,21 @@
 import { useState, useContext } from "react";
 import { TaskContext } from "../context/TaskContext";
 
-function TaskForm({ createTask }) {
+function TaskForm() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const value = useContext(TaskContext)
-  console.log(value)
+  const  {createTask}  = useContext(TaskContext);
+
+  console.log(createTask);
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(title, description);
+
     createTask({
-        title,
-        description
+      title,
+      description,
     });
-    setTitle('');
-    setDescription('');
+    setTitle("");
+    setDescription("");
   };
   return (
     <form onSubmit={handleSubmit}>
@@ -22,7 +23,6 @@ function TaskForm({ createTask }) {
         placeholder="Escribe tu tarea"
         onChange={(e) => {
           setTitle(e.target.value);
-         
         }}
         value={title}
         autoFocus
