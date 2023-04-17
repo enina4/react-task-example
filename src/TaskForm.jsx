@@ -6,10 +6,8 @@ function TaskForm({createTask}) {
   const handleSubmit = (e) => {
     e.preventDefault();
     //console.log(createTask);
-    const newTask={
-        title:title
-    }
-   createTask(newTask)
+     
+   createTask(title)
   };
   return (
     <form onSubmit={handleSubmit}>
